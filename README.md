@@ -59,7 +59,6 @@ chmod +x add_subdomain.sh
 
     sudo certbot renew --dry-run
     sudo systemctl restart nginx 
-
 ```
 
 ### 3. Настройте файлы IP-фильтрации
