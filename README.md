@@ -8,18 +8,17 @@
 - выдать и подключить SSL-сертификат;
 - включить или отключить **IP-фильтрацию**.
 
-
 ## 📂 Структура проекта
 
----
-nginx-domain-provisioner/
-│
-├── add_subdomain.sh             # основной скрипт
-├── includes/
-│   ├── allowed_ips.conf          # список разрешённых IP
-│   └── no_ip_restriction.conf    # пустой include (без ограничений)
-└── README.md                     # документация
-
+```
+.
+└── nginx-domain-provisioner/
+    ├── add_subdomain.sh             # основной скрипт
+    ├── includes/
+    │   ├── allowed_ips.conf          # список разрешённых IP
+    │   └── no_ip_restriction.conf    # пустой include (без ограничений)
+    └── README.md                     # документация
+```
 
 
 **⚡️ Возможности**
