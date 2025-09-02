@@ -46,7 +46,7 @@ sudo ./add_subdomain.sh read.app.tw1.ru 3000 no
 - С фильтрацией по IP:
 
 ```bash
-sudo ./add_subdomain.sh feed.app.tw1.ru 3080 yes
+sudo ./add_subdomain.sh play.crm-tg-mini-app.tw1.ru 3037 yes
 ```
 
 ### 5. Добавление DNS-записи
@@ -125,6 +125,34 @@ tail -n 50 /var/log/letsencrypt/letsencrypt.log
 
 ```bash
 sudo nginx -t
+```
+
+### 12. PS
+
+НЕ ЗАБУДЬТЕ ДОБАВИТЬ СПЕЦИФИЧНЫЕ ОПЦИИ ДЛЯ ОПРЕДЕЛЕННЫХ СЕРВЕРОВ
+НАПРИМЕР:
+
+```nginx
+   server {
+
+            server_name feed.app.twc1.net;
+
+            client_max_body_size 50M;  # максимальный размер файла 50 мегабайт
+
+            location / {
+                    proxy_pass http://localhost:3500;
+                    proxy_http_version 1.1;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection 'upgrade';
+                    proxy_set_header Host $host;
+                    proxy_cache_bypass $http_upgrade;
+                    # --- ВАЖНО! ---
+                    proxy_read_timeout 600s;   # 10 минут
+                    proxy_send_timeout 600s;
+                    send_timeout 600s;
+                    # --- ВАЖНО! ---
+            }
+
 ```
 
 Удачи в эксплуатации! Автоматизация теперь реально работает! 🚀
