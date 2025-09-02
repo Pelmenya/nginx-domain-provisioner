@@ -5,10 +5,18 @@
 ### 1. Установка ПО
 
 ```bash
-sudo apt update
-sudo apt install nginx snapd -y
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    sudo apt-get remove certbot, sudo dnf remove certbot, or sudo yum remove certbot
+
+    sudo apt update
+    sudo apt install snapd
+
+    sudo snap install --classic certbot
+    sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+    sudo certbot --nginx
+
+    sudo certbot renew --dry-run
+    sudo systemctl restart nginx 
 ```
 
 ### 2. Клонирование проекта и подготовка скрипта
