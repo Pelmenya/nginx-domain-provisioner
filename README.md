@@ -49,3 +49,4 @@ sudo apt install nginx snapd -y
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
+sudo mkdir -p /etc/nginx/includes
