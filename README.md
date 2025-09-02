@@ -47,10 +47,19 @@ chmod +x add_subdomain.sh
 ### 2. Установить зависимости (если ещё не стоят)
 
 ```bash
-sudo apt update
-sudo apt install nginx snapd -y
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    sudo apt-get remove certbot, sudo dnf remove certbot, or sudo yum remove certbot
+
+    sudo apt update
+    sudo apt install snapd
+
+    sudo snap install --classic certbot
+    sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+    sudo certbot --nginx
+
+    sudo certbot renew --dry-run
+    sudo systemctl restart nginx 
+
 ```
 
 ### 3. Настройте файлы IP-фильтрации
